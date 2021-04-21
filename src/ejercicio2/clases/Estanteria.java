@@ -13,7 +13,11 @@ import java.util.Arrays;
 public class Estanteria {
 
     //Array
-    private Producto [][] estanteria = new Producto[5][6];
+    public static Producto [][] estanteria = new Producto[5][6];
+
+    //Constantes
+    public static final int NUMERO_ESTANTERIAS = 5;
+    public static final int NUMERO_HUECOS = 6;
 
 
     //Metodos para trabajar con ella
@@ -33,7 +37,7 @@ public class Estanteria {
     /**
      * Metodo para calcular el precio de todas las bebidas
      */
-    public double calcularPrecio(){
+    public static double calcularPrecio(){
         double precio=0;
         for (int i=0; i < estanteria.length;i++){
             for (int j=0;j<estanteria[i].length;j++){
@@ -59,7 +63,7 @@ public class Estanteria {
     /**
      * Metodo para calcular el precio total de una estanteria
      */
-    public double calcularPrecioEstanteria(int numeroEstanteria){
+    public static double calcularPrecioEstanteria(int numeroEstanteria){
         double precio=0;
         for (int i=0; i < estanteria[numeroEstanteria].length;i++){
             precio += estanteria[numeroEstanteria][i].getPrecioFinal();
@@ -70,7 +74,7 @@ public class Estanteria {
     /**
      * Agregar un producto
      */
-    public void agregarProducto(Producto p) {
+    public static void agregarProducto(Producto p) {
         boolean repetida = false;
 
         //Primero reviso si el id ya estaba en la estanteria, y por lo tanto si esta repetido
@@ -98,7 +102,7 @@ public class Estanteria {
      * Eliminar un producto de la estanteria
      */
 
-    public void eliminarProducto(int id) {
+    public static void eliminarProducto(int id) {
         for (int x = 0; x < estanteria.length; x++) {
             for (int y = 0; y < estanteria[y].length; y++) {
                 if (estanteria[x][y].getIdentificador() == id) {
@@ -113,7 +117,7 @@ public class Estanteria {
      * Mostrar el inventario de  un producto de la estanteria
      */
 
-    public void MostrarInventarioProducto() {
+    public static void MostrarInventarioProducto() {
         for (int i = 0; i < estanteria.length; i++) {
             for (int j = 0; j < estanteria[i].length; j++) {
                estanteria[i][j].toString();
