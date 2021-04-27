@@ -78,6 +78,7 @@ public class Estanteria {
         boolean repetida = false;
 
         //Primero reviso si el id ya estaba en la estanteria, y por lo tanto si esta repetido
+        /*
         for (int x = 0; x < estanteria.length; x++) {
             for (int y = 0; y < estanteria[y].length; y++) {
                 if (estanteria[x][y].getIdentificador() == p.getIdentificador()) {
@@ -85,16 +86,20 @@ public class Estanteria {
                 }
             }
 
+         */
+
             //Si no esta repetido, se agrega el producto en el primer espacio disponible
-            if (!repetida) {
+            //if (!repetida) {
                 for (int i = 0; i < estanteria.length; i++) {
-                    for (int j = 0; j < estanteria[i].length; j++) {
-                        if (estanteria[i][j] != null) {
+                    for (int j = 0; j < estanteria[i].length && !repetida; j++) {
+                        if (estanteria[i][j] == null) {
                             estanteria[i][j] = p;
+                            repetida = true;
+
                         }
                     }
-                }
-            }
+                //}
+
         }
     }
 
@@ -103,10 +108,12 @@ public class Estanteria {
      */
 
     public static void eliminarProducto(int id) {
+        boolean eliminado = false;
         for (int x = 0; x < estanteria.length; x++) {
-            for (int y = 0; y < estanteria[y].length; y++) {
+            for (int y = 0; y < estanteria[y].length && !eliminado; y++) {
                 if (estanteria[x][y].getIdentificador() == id) {
                     estanteria[x][y] = null;
+                    eliminado = true;
                 }
             }
         }

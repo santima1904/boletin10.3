@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class Menu {
     //Teclado
+    public static Scanner tecladoString = new Scanner(System.in);
     public static Scanner teclado = new Scanner(System.in);
 
     //Constantes con mensajes
@@ -161,7 +162,7 @@ public class Menu {
         String respuesta = null;
         do {
             System.out.println(MENSAJE_MARCA);
-            respuesta = teclado.nextLine();
+            respuesta = tecladoString.nextLine();
         }while(respuesta == null);
 
         return respuesta;
@@ -174,7 +175,7 @@ public class Menu {
         String respuesta = null;
         do {
             System.out.println(MENSAJE_ORIGEN);
-            respuesta = teclado.nextLine();
+            respuesta = tecladoString.nextLine();
         }while(respuesta == null);
 
         return respuesta;
